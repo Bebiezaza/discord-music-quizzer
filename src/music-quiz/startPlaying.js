@@ -55,7 +55,6 @@ async function startPlaying(message) {
     }
 
     const song = quiz.songs[quiz.currentSong];
-    console.log(song);
     const link = await findSong(message, song);
 
     if (!link) {
