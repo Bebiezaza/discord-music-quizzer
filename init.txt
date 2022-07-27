@@ -1,0 +1,2 @@
+npm init -y
+npm install discord.js ffmpeg fluent-ffmpeg @discordjs/voice libsodium-wrappers opusscript play-dl ytsr spotify-web-api-node dotenv nodemon --save
