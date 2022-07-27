@@ -6,7 +6,7 @@ module.exports = function (message, response) {
         memberArray.push([ x[0], quiz.scores[x[0]] ]);
     }
 
-    return memberArray.sort((first, second) => (quiz.scores[first[1]] || 0) < (quiz.scores[second[1]] || 0) ? 1 : -1)
+    return memberArray.sort((first, second) => (first[1] || 0) < (second[1] || 0) ? 1 : -1)
         .map((member, index) => {
             let position = `**${index + 1}.** `
             if (index === 0) {
