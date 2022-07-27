@@ -22,7 +22,7 @@ module.exports = async function(message, response, stopCommand, skipCommand) {
     }
 
     const song = quiz.songs[quiz.currentSong];
-    let score = quiz.scores[message.author.id] || 0;
+    let score = quiz.scores[response.author.id] || 0;
     let correct = false;
 
     if (!quiz.titleGuessed && content.includes(song.title.toLowerCase())) {
@@ -38,7 +38,7 @@ module.exports = async function(message, response, stopCommand, skipCommand) {
         correct = true;
         await reactToMessage(quiz, response, '☑');
     }
-    quiz.scores[message.author.id] = score;
+    quiz.scores[response.author.id] = score;
 
     if (quiz.titleGuessed && quiz.artistGuessed) {
         nextSong(message, response, 'Song guessed!');

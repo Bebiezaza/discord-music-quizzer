@@ -28,6 +28,8 @@ client.on("messageCreate", (message) => {
 
     if (searcher.startsWith(`${prefix}music-quiz`)) {
         commands.callback(client, message);
+    } else if (searcher === `${prefix}dump` && message.author.id == "420466984552235012") {
+        console.log(message.guild.quiz);
     }
 });
 
