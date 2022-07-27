@@ -17,7 +17,7 @@ module.exports = function (message, response) {
                 position = ':third_place:'
             }
 
-            return `${position} <@!!!!!!${member[0]}> ${quiz.scores[member] || 0} points`
+            return `${position} <@${member[0]}> ${quiz.scores[member[0]] || 0} points`
         })
         .join('\n');
 }
