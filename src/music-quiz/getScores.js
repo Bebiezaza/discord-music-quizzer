@@ -3,10 +3,10 @@ module.exports = function (message, response) {
     const memberArray = [];
 
     for (let x of response.member.voice.channel.members.filter(member => !member.user.bot)) {
-        memberArray.push(x);
+        memberArray.push([ x[0], quiz.scores[x[0]] ]);
     }
 
-    return memberArray.sort((first, second) => (quiz.scores[first.id] || 0) < (quiz.scores[second.id] || 0) ? 1 : -1)
+    return memberArray.sort((first, second) => (quiz.scores[first[1]] || 0) < (quiz.scores[second[1]] || 0) ? 1 : -1)
         .map((member, index) => {
             let position = `**${index + 1}.** `
             if (index === 0) {
@@ -17,7 +17,7 @@ module.exports = function (message, response) {
                 position = ':third_place:'
             }
 
-            return `${position} <@${member[0]}> ${quiz.scores[member[0]] || 0} points`
+            return `${position} <@${member[0]}> ${member[1] || 0} points`
         })
         .join('\n');
 }
